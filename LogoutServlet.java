@@ -1,7 +1,4 @@
-package com.example;  // Add your package if needed
-
-import com.exmaple.HttpServlet;
-import com.exmaple.WebServlet;
+package com.example;  
 
 import javax.servlet.*;
 import javax.servlet.annotation.*;
@@ -14,7 +11,7 @@ public class LogoutServlet extends HttpServlet {
             throws ServletException, IOException {
 
         // 1. Invalidate session
-        HttpSession session = request.getSession(false);  // Added 'false' parameter
+        HttpSession session = request.getSession(false);  
         if (session != null) {
             session.invalidate();
         }
@@ -23,14 +20,14 @@ public class LogoutServlet extends HttpServlet {
         Cookie[] cookies = request.getCookies();
         if (cookies != null) {
             for (Cookie cookie : cookies) {
-                if (cookie.getName().equals("user")) {  // Fixed missing parenthesis
-                    cookie.setMaxAge(0);  // Set expiry to 0 to delete cookie
+                if (cookie.getName().equals("user")) {  
+                    cookie.setMaxAge(0);  
                     response.addCookie(cookie);
                 }
             }
         }
 
-        // 3. Redirect to login page
+        
         response.sendRedirect("login.html");
     }
 }
