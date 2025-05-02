@@ -22,7 +22,7 @@ public class EnrollServlet extends HttpServlet {
             enrolledCourses = new ArrayList<>();
         }
 
-        // Add the new course (replace with your logic to find the course)
+       
         enrolledCourses.add(new Course(courseId, "Sample Course", "Instructor"));
         session.setAttribute("enrolledCourses", enrolledCourses);
 
